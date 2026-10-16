@@ -182,3 +182,88 @@ function atualizarContadorFavoritos() {
     quantidadeFavoritos.textContent = quantidade
 
 } // Final função atualizarContadorFavoritos
+
+// Versão 5: Curiosidades aleatórias
+
+const tituloCuriosidadesAleatoria = document.querySelector("#titulo-curiosidade-aleatoria")
+
+const explicacaoCuriosidadeAleatoria = document.querySelector("#explicacao-curiosidade-aleatoria")
+
+const botaoCuriosidadeAleatoria = document.querySelector(".botao-curiosidade-aleatoria")
+
+// Lista de curiosidades a serem usadas pela função
+const curiosidadesUniverso = [
+  {
+    titulo: "A luz do Sol não chega instantaneamente à Terra",
+    explicacao: "A luz viaja pelo espaço e leva cerca de 8 minutos para chegar até nós."
+  },
+  {
+    titulo: "Em Vênus, um dia é mais longo que um ano",
+    explicacao: "Vênus leva cerca de 243 dias terrestres para girar uma vez em torno do próprio eixo e cerca de 225 dias para completar uma órbita ao redor do Sol."
+  },
+  {
+    titulo: "Marte tem duas luas pequenas",
+    explicacao: "As luas de Marte se chamam Fobos e Deimos. Elas têm formas irregulares, diferentes da forma quase esférica da Lua da Terra."
+  },
+  {
+    titulo: "Júpiter tem uma tempestade gigante",
+    explicacao: "A Grande Mancha Vermelha é uma enorme tempestade na atmosfera de Júpiter. Ela é mais larga que a Terra e vem sendo observada há séculos."
+  },
+  {
+    titulo: "Europa pode esconder um oceano",
+    explicacao: "A lua Europa, de Júpiter, tem uma crosta de gelo. Observações indicam que pode haver um oceano de água líquida sob essa superfície."
+  },
+  {
+    titulo: "Uma lua de Júpiter é maior que Mercúrio",
+    explicacao: "Ganimedes é a maior lua do Sistema Solar. Seu diâmetro é maior que o do planeta Mercúrio."
+  },
+  {
+    titulo: "Os anéis de Saturno são feitos de muitos fragmentos",
+    explicacao: "Eles contêm bilhões de pedaços de gelo e rocha, desde grãos muito pequenos até blocos enormes."
+  },
+  {
+    titulo: "A Lua mantém quase sempre a mesma face voltada para a Terra",
+    explicacao: "A Lua leva praticamente o mesmo tempo para girar em torno de si e para dar uma volta ao redor da Terra. Por isso, vemos quase sempre o mesmo hemisfério."
+  },
+  {
+    titulo: "Mercúrio pode ter gelo em crateras escuras",
+    explicacao: "Em crateras profundas próximas aos polos, há regiões que nunca recebem luz solar direta. Essas áreas podem conservar gelo de água apesar do calor em outras partes do planeta."
+  },
+  {
+    titulo: "O Sol também se move pela galáxia",
+    explicacao: "O Sol e seu sistema planetário orbitam o centro da Via Láctea. Uma volta completa leva cerca de 230 milhões de anos terrestres."
+  },
+  {
+    titulo: "A Via Láctea é uma galáxia espiral barrada",
+    explicacao: "Ela tem uma região central alongada, em forma de barra, e braços espirais. O Sistema Solar fica numa região chamada Braço de Órion."
+  },
+  {
+    titulo: "Há planetas que orbitam duas estrelas",
+    explicacao: "Alguns exoplanetas, que são planetas fora do Sistema Solar, orbitam um par de estrelas em vez de uma estrela só."
+  }
+
+];
+
+function exibirCuriosidadeAleatoria(){
+
+    // curiosidadesUniverso.length -> quantidade de dados na lista
+    // Math.random() -> gera valores aleatórios entre 0 e 1
+    // Math.floor() -> arredonda para baixo
+
+    const indiceAleatorio = Math.floor(Math.random() * curiosidadesUniverso.length)
+
+    // Acessando/guardando a curiosidade pelo índice aleatorio (0,1,2)
+    const curiosidadeEscolhida = curiosidadesUniverso[indiceAleatorio]
+
+    // Exibindo o titulo da curiosidade escolhida no h3
+    tituloCuriosidadesAleatoria.textContent = curiosidadeEscolhida.titulo;
+
+    // Exibindo a explicação da curiosidade escolhida no p
+    explicacaoCuriosidadeAleatoria.textContent = curiosidadeEscolhida.explicacao;
+
+}
+
+botaoCuriosidadeAleatoria.addEventListener("click", exibirCuriosidadeAleatoria)
+
+// Chamar a função de forma automática no momento de entrada no site
+exibirCuriosidadeAleatoria()
